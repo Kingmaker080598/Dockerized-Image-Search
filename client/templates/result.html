@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Image Search Result</title>
+</head>
+<body>
+    <h1>Image Search Result</h1>
+    
+    {{ if .errorMessage }}
+    <p>{{ .errorMessage }}</p>
+    {{ else }}
+    <img id="imageElement" alt="Image">
+    <script>
+        // Convert the base64-encoded image data to an image
+        var imageBase64 = "{{ .imageBase64 }}";
+        imageElement.src =  imageBase64;
+    </script>
+    {{ end }}
+    <br>
+    <br>
+    <a href="/">Back to Search</a>
+</body>
+</html>

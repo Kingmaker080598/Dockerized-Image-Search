@@ -1,0 +1,16 @@
+
+syntax = "proto3";
+
+option go_package = "/pb";
+
+service ImageSearchService {
+    rpc SearchImage(ImageServiceRequest) returns (ImageServiceReply) {}
+}
+
+message ImageServiceRequest {
+    string keyword = 1;
+}
+
+message ImageServiceReply {
+    bytes ImageData = 1;
+}

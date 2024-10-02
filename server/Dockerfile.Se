@@ -1,0 +1,23 @@
+# Use an official Golang runtime as a parent image
+FROM golang:1.21.2
+
+# Set the working directory in the container
+WORKDIR /app
+
+# Copy the Go server source code into the container
+COPY server.go /app/
+COPY go.mod/ /app/
+COPY go.sum/ /app/
+COPY pb/ /app/pb
+
+# Copy any other required files, e.g., your "images" directory
+COPY images/ /app/images/
+
+# Build the Go application inside the container
+RUN go build server.go
+
+# Expose the port on which the gRPC server will run
+EXPOSE 8080
+
+# Command to run the Go server
+CMD ["./server"]

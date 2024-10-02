@@ -1,0 +1,25 @@
+version: '3'
+services:
+  server:
+    container_name: grpc-server
+    build:
+      context: ./server
+      dockerfile: Dockerfile.Se
+
+    ports:
+      - "8080:8080"
+    networks:
+      - mynetwork
+
+  client:
+    container_name: grpc-client
+    build:
+      context: ./client 
+      dockerfile: Dockerfile.CL
+    ports:
+      - "8081:8081"
+    networks:
+      - mynetwork
+
+networks:
+  mynetwork:
