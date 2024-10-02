@@ -1,0 +1,24 @@
+version: '3'
+
+services:
+  server:
+    build:
+      context: .  # Build from the current directory
+      dockerfile: Dockerfile.server
+    ports:
+      - "50051:50051"
+    networks:
+      - my-network
+
+  app:
+    build:
+      context: .  # Build from the current directory
+      dockerfile: Dockerfile.app
+    ports:
+      - "4000:80"
+    networks:
+      - my-network
+
+networks:
+  my-network:
+    external: true

@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Search Results</title>
+</head>
+<body>
+    <h1>Search Results</h1>
+    
+    {% if image_base64 %}
+    <img src="data:image/jpeg;base64,{{ image_base64 }}" alt="Image">
+    {% else %}
+    <p>No image found for the keyword.</p>
+    {% endif %}
+</body>
+</html>
